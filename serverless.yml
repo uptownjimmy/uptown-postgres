@@ -1,0 +1,48 @@
+service: uptown-postgres
+# app and org for use with dashboard.serverless.com
+# app: uptown-postgres
+org: uptownjimmy
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  
+functions:
+  getItem:
+    handler: handler.getItem
+    events:
+      - http:
+          path: items/{id}
+          method: get
+          cors: true
+  getAllItems:
+    handler: handler.getAllItems
+    events:
+      - http:
+          path: items
+          method: get
+          cors: true
+  createItem:
+    handler: handler.createItem
+    events:
+      - http:
+          path: items
+          method: post
+          cors: true
+  updateItem:
+    handler: handler.updateItem
+    events:
+      - http:
+          path: items/{id}
+          method: put
+          cors: true
+  deleteItem:
+    handler: handler.deleteItem
+    events:
+      - http:
+          path: items/{id}
+          method: delete
+          cors: true
+
+plugins:
+  - serverless-offline
