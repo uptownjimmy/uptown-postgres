@@ -11,6 +11,6 @@
   "description": "",
   "dependencies": {
     "postgresql-easy": "^1.2.5",
-    "serverless-offline": "^6.1.4"
+    "serverless-offline": "^12.0.4"
   }
 }
